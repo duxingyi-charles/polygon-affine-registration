@@ -79,8 +79,8 @@ def affine_registration(P1, P2, n1, n2, max_iterations=100, tol=1e-6):
     # Step 1: Sample points on polygon boundaries
     v_points = sample_polygon_boundary(P1, n1)
     u_points = sample_polygon_boundary(P2, n2)
-    #np.savetxt("v_points.txt", v_points)
-    #np.savetxt("u_points.txt", u_points)
+    #np.savetxt("output/v_points.txt", v_points)
+    #np.savetxt("output/u_points.txt", u_points)
     
     # Step 2: Compute centroids and move point sets to the origin
     v_center = centroid(v_points)
@@ -136,7 +136,7 @@ def main():
 
     # Transform the points of P1
     P1_transformed = np.dot(np.array(P1), linear_transform.T) + translation
-    np.savetxt("P1_transformed.txt", P1_transformed)
+    np.savetxt("output/P1_transformed.txt", P1_transformed)
 
     # Plot the original polygons and the transformed polygon
     plt.figure(figsize=(8, 8))
